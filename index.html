@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>agent-lab client</title>
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+
+  <body>
+    <main class="container">
+      <h1>agent-lab client</h1>
+
+      <section class="row">
+        <input id="base-url" placeholder="http://127.0.0.1:8099" autocomplete="off" />
+        <input id="token" type="text" placeholder="bearer token" autocomplete="off" />
+      </section>
+
+      <section class="row">
+        <select id="session-select"></select>
+        <input id="new-session-name" placeholder="new session name" autocomplete="off" />
+        <button id="create-session">New session</button>
+      </section>
+
+      <section id="messages" class="messages"></section>
+
+      <form id="send-form" class="row">
+        <input id="message-input" placeholder="type a message" autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+
+      <p id="status"></p>
+    </main>
+  </body>
+</html>

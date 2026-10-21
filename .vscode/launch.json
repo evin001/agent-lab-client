@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug agent-lab-client (Tauri)",
+      "type": "lldb-dap",
+      "request": "launch",
+      "preLaunchTask": "debug: prepare",
+      "program": "${workspaceFolder}/src-tauri/target/debug/agent-lab-client",
+      "args": [],
+      "cwd": "${workspaceFolder}/src-tauri"
+    }
+  ]
+}

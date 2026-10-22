@@ -40,6 +40,13 @@ async fn request(
     Ok(body)
 }
 
+// Hardcoded, not a parameter: this client is single-purpose (the user's
+// stove-building course), and forced course_search — fail-closed, no
+// let-the-model-decide tool-calling — is deliberately the only mode it
+// offers (agent-lab/docs/plans/phase2_client_and_memory.md, point 9;
+// agent-lab/docs/agentserver.md). No UI control for this either.
+const COURSE_PROFILE: &str = "course";
+
 #[tauri::command]
 async fn create_session(base_url: String, token: String, name: String) -> Result<Value, String> {
     let client = reqwest::Client::new();
@@ -49,7 +56,7 @@ async fn create_session(base_url: String, token: String, name: String) -> Result
         &base_url,
         "/v1/sessions",
         &token,
-        Some(serde_json::json!({ "name": name })),
+        Some(serde_json::json!({ "name": name, "profile": COURSE_PROFILE })),
     )
     .await
 }
